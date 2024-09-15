@@ -1,10 +1,9 @@
-const dotenv = require("dotenv")
-dotevn.config({path: "./.env.deploy"});
+const dotenv = require("dotenv");
+dotenv.config({path: "./.env.deploy"});
 
 const {
   DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REPOSITORY, DEPLOY_REF,
 } = process.env;
-
 
 module.exports = {
   apps : [
@@ -18,7 +17,7 @@ module.exports = {
       user: DEPLOY_USER,
       host: DEPLOY_HOST,
       ref: DEPLOY_REF,
-      repo: DELPOY_REPOSITORY,
+      repo: DEPLOY_REPOSITORY,
       path: DEPLOY_PATH,
       'pre-deploy-local': `bash scripts/deployEvn.sh ${DEPLOY_USER}@${DEPLOY_HOST} ${DEPLOY_PATH}`,
       'post-deploy': 'cd backend && pwd && npm ci && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
