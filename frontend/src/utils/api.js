@@ -99,7 +99,9 @@ class Api {
         },
       }).then(getResponse)
     }
-  
+
+
+
     register(email, password) {
       return fetch(`${this._address}/signup`, {
         method: 'POST',

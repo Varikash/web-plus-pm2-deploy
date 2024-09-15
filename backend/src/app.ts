@@ -18,6 +18,12 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+// Добавляем маршрут для краштеста
+app.get('/crash-test', () => {
+    setTimeout(() => {
+        throw new Error('Сервер сейчас упадёт');
+    }, 0);
+});
 app.use(routes);
 app.use(errors());
 app.use(errorHandler);
