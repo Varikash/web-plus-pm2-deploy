@@ -139,7 +139,7 @@ class Api {
   }
   }
   // Замените на адрес вашего бэкенда
-  const api = new Api('https://api.nikvar.nomorepartiesco.ru/');
+  const api = new Api('https://api.nikvar.nomorepartiesco.ru');
   
   export default api;
   
